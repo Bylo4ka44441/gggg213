@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title> <%=guild.name%>'s Manager </title>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  </head>
+  
+  
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">
+        <img src="<%= guild.iconURL() %>" width="50" height="50" alt="" loading="lazy">
+        <%= guild.name%>
+      </a> 
+    </nav>
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Общее</h3>
+    <form action="/server_save/<%=guild.id%>" method="post">
+      <a>Префикс</a>
+  
+      <input class="pole" type="text" name="prefix" value="<%= db.prefix %>">
+      <br></br>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Приветствия</h3>
+        <a class="card-text">Включить</a>
+        <input type="checkbox" name="toggle_hi" checked="<%= db.toggle_hi %>"></br>
+        <a>Канал для отправки</a>
+      <input class="pole"type="text" name="hi_channel" value="<%= db.hi_channel %>"></br>
+      <a>Текст приветствия. Вы можете использовать переменные: {member}, {guild}, {count}</a>
+        <input class="pole" type="text" name="hi_text" value="<%= db.hi_text %>">
+      </div>
+    </div>
+    <input class="btn"type="submit" value="Сохранить">
+    </form>
+    
+    
+    
+    
+    
+    
+    <style>
+      
+      .pole{
+        border-radius: 20px;
+        border-color: #affaff;
+        background: transparent;
+      }
+      
+      .btn{
+        border-radius: 5px        background: #affaff;
+      }
+      
+      
+      
+      
+    </style>
+  </body>
+</html>
